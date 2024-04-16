@@ -19,31 +19,31 @@ function SiteEngDash() {
   return (
     <div className="p-0">
       <div className="row">
-        <div className={`col-md-3 vh-100 d-md-flex flex-column flex-shrink-0 p-3 bg-custom-color  ${sidebarOpen ? "" : "sidebar"} `}>
+        <div className={`col-md-3 vh-100 d-md-flex flex-column flex-shrink-0  bg-custom-color ${sidebarOpen ? "sidebar" : ""} `}>
           <div className="d-md-flex flex-column flex-shrink-0 p-3 bg-custom-color vh-100">
-            <a className="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-              <span className="fs-4">SiteEng</span>
-            </a>
-            <hr />
+            <Link className="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+              <span className="fs-4 text-white">SiteEng Dashboard</span>
+            </Link>
+            <hr  className=" text-white size-3"/>
             <ul className="nav nav-pills flex-column mb-auto">
               <li className="nav-item">
-                <a onClick={() => setNav("home")} className={`nav-link ${nav === "home" && "active"}`}>
+                <Link onClick={() => setNav("home")} className={`nav-link text-white ${nav === "home" && "active"}`}>
                   <svg className="bi pe-none me-2" width="16" height="16">
                     <use xlinkHref="#home"></use>
                   </svg>
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a onClick={() => setNav("reports")} className={`nav-link ${nav === "reports" && "active"}`}>
+                <Link onClick={() => setNav("reports")} className={`nav-link text-white ${nav === "reports" && "active"}`}>
                   <svg className="bi pe-none me-2" width="16" height="16">
                     <use xlinkHref="#speedometer2"></use>
                   </svg>
                   Reports
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <Link onClick={() => setNav("adduser")} className={`nav-link ${nav === "adduser" && "active"}`}>
+                <Link onClick={() => setNav("adduser")} className={`nav-link text-white ${nav === "adduser" && "active"}`}>
                   <svg className="bi pe-none me-2" width="16" height="16">
                     <use xlinkHref="#table"></use>
                   </svg>
@@ -51,20 +51,20 @@ function SiteEngDash() {
                 </Link>
               </li>
               <li className="nav-item">
-                <a onClick={() => setNav("userlist")} className={`nav-link ${nav === "userlist" && "active"}`}>
+                <Link onClick={() => setNav("userlist")} className={`nav-link text-white ${nav === "userlist" && "active"}`}>
                   <svg className="bi pe-none me-2" width="16" height="16">
                     <use xlinkHref="#grid"></use>
                   </svg>
                   User List
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a onClick={() => setNav("products")} className={`nav-link ${nav === "products" && "active"}`}>
+                <Link onClick={() => setNav("products")} className={`nav-link text-white ${nav === "products" && "active"}`}>
                   <svg className="bi pe-none me-2" width="16" height="16">
                     <use xlinkHref="#people-circle"></use>
                   </svg>
                   Products
-                </a>
+                </Link>
               </li>
             </ul>
             <hr />
@@ -81,8 +81,8 @@ function SiteEngDash() {
                       <Navbar.Brand onClick={toggleSidebar}>
                         {sidebarOpen ? <i className="bi bi-chevron-left"></i> : <i className="bi bi-list fs-4"></i>}
                       </Navbar.Brand>
-                    
-                    
+
+
                       <Form.Control
                         type="search"
                         placeholder="Search"

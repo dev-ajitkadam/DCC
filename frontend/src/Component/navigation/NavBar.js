@@ -4,7 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
-
+import dcc1 from "../images/dcc1.png";
 
 function NavBar() {
   return (
@@ -13,11 +13,11 @@ function NavBar() {
         variant="dark"
         expand="lg"
         className="form-control-lg text-light bg-custom-color borderse"
-        style={{ border: 'none', borderRadius: 0 ,}}
+        style={{ border: "none", borderRadius: 0 }}
       >
         <Container>
-          <Navbar.Brand as={Link} to="/" className="mr-5 px-5 py-3 flex-fill text-light">
-            DCC
+          <Navbar.Brand as={Link} to="/" className="mr-5 px-3 py-3 flex-fill">
+            <img src={dcc1} height="40" width="60px" alt="Logo" />
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -27,7 +27,11 @@ function NavBar() {
               <Nav.Link as={Link} to="/" className="nav-link text-light">
                 Home
               </Nav.Link>
-              <Nav.Link as={Link} to="/services" className="nav-link text-light">
+              <Nav.Link
+                as={Link}
+                to="/services"
+                className="nav-link text-light"
+              >
                 Services
               </Nav.Link>
               <Nav.Link as={Link} to="/about" className="nav-link text-light">
@@ -39,8 +43,14 @@ function NavBar() {
             </Nav>
 
             <div className="col-md-3">
-              <Link to='/login'>
-              <Button className="bg-success form-control-lg border-white px-4 py-2" variant="primary" size="lg">Login</Button>
+              <Link to="/login">
+                <Button
+                  className="bg-success form-control-lg border-white px-4 py-2"
+                  variant="primary"
+                  size="lg"
+                >
+                  Login
+                </Button>
               </Link>
             </div>
           </Navbar.Collapse>

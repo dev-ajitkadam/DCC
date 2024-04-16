@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { json } from "react-router-dom";
 
 function Contact() {
   const [user, setuser] = useState({
@@ -55,11 +54,11 @@ function Contact() {
           <div className="row align-items-center g-lg-5 py-5">
             <div className="col-lg-7 text-center text-lg-start">
               <h1 className="display-5 fw-bold lh-1 text-body-emphasis mb-3 px-2 py-3">
-                LET'S BEGIN YOUR PROJECT WITH ALTRAAVISON TEST HOUSE PVT.LTD
+                LET'S BEGIN YOUR PROJECT WITH "DYNAMIC CONCRETE CONSULTANCY"
               </h1>
 
-              <h3> Contact No: +918888403292</h3>
-              <h3>Email ID: altraavision@gmail.com</h3>
+              <h3> Contact No: +918484846201</h3>
+              <h3>Email ID: support@dccrmc.com</h3>
             </div>
             <div className="col-md-10 mx-auto col-lg-5 container">
               {/* form contact us */}

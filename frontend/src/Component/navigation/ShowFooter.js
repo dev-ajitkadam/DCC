@@ -10,6 +10,12 @@ const ShowFooter = ({ children }) => {
       setShowFooter(false);
     }else if(location.pathname === '/siteengdash'){
       setShowFooter(false)
+    }else if(location.pathname === '/admindash'){
+      setShowFooter(false)
+    }else if(location.pathname === '/managerdash'){
+      setShowFooter(false)
+    }else if(location.pathname === '/clientdash'){
+      setShowFooter(false)
     } else {
       setShowFooter(true);
     }

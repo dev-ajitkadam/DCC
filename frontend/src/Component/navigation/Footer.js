@@ -1,4 +1,5 @@
 import React from 'react';
+import dcc1 from "../images/dcc1.png"
 import { Link } from 'react-router-dom';
 
 function Footer() {
@@ -6,11 +7,14 @@ function Footer() {
     <footer>
       <div className="container-fluid footers text-light">
         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 border-top">
-          <div className="col mb-3">
-            <h1> (Demo BigFooter)</h1>
+          <div className="col mb-3 ml-5 pl-5 justify-center align-items-center">
             <a href="/" className="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
-              <svg className="bi me-2" width="40" height="32"><use xlinkHref="#bootstrap"></use></svg>
+            <img src={dcc1}
+                     height="100" 
+                     width= "100"
+                     alt="Logo" />
             </a>
+            <h1>DCC</h1>
           </div>
 
           <div className="col mb-3">

@@ -263,3 +263,9 @@ padding: 1rem;
     }
 }
 
+@media (max-width:1008px){
+  .lap{
+    display: none;
+  }
+}
+
