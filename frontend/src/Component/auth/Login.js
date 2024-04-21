@@ -23,6 +23,7 @@ const LoginForm = () => {
       .then((res) => {
         if (res.data.status === "success") {
           localStorage.setItem("token", res.data.token);
+          console.log(res.data.token)
           if (res.data.role === "admin") {
             navigate("/admindash");
           } else if (res.data.role === "manager") {

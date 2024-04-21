@@ -3,11 +3,10 @@ const mongoose =require('mongoose')
 const UserSchema = new mongoose.Schema({
     name:String,
     email:String,
-    password:String,
-    role:{
-        type :String,
-        default:"visitor"
-    }
+    number:String,
+    role:String,
+    password:String
+    
 })
 
 const UserModel = mongoose.model("users", UserSchema)

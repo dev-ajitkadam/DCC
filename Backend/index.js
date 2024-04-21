@@ -20,43 +20,43 @@ app.use(cookieParser());
 const SECRET_KEY = process.env.JWT_SECRET;
 
 // Middleware to verify user role and permissions
-const verifyRole = (allowedRoles) => {
-    return (req, res, next) => {
-        const token = req.headers.authorization.split(' ')[1];
-        if (!token) {
-            return res.status(403).send('A token is required for authentication');
-        }
-        try {
-            const decoded = jwt.verify(token, SECRET_KEY);
-            req.user = decoded;
+// const verifyRole = (allowedRoles) => {
+//     return (req, res, next) => {
+//         const token = req.headers.authorization.split(' ')[1];
+//         if (!token) {
+//             return res.status(403).send('A token is required for authentication');
+//         }
+//         try {
+//             const decoded = jwt.verify(token, SECRET_KEY);
+//             req.user = decoded;
             
-            // Check if the user's role is one of the allowed roles
-            if (!allowedRoles.includes(decoded.role)) {
-                return res.status(403).send('You do not have permission to perform this action contact Admin');
-            }
+//             // Check if the user's role is one of the allowed roles
+//             if (!allowedRoles.includes(decoded.role)) {
+//                 return res.status(403).send('You do not have permission to perform this action contact Admin');
+//             }
 
-            // Check for specific permissions based on user role
-            switch (decoded.role) {
-                case 'admin':
-                case 'manager':
-                    // Admin and manager can add users
-                    if (req.path === '/signup') {
-                        return next();
-                    }
-                    break;
-                default:
-                    // Other roles are not allowed to add users
-                    if (req.path === '/signup') {
-                        return res.status(403).send('You do not have permission to add users');
-                    }
-            }
+//             // Check for specific permissions based on user role
+//             switch (decoded.role) {
+//                 case 'admin':
+//                 case 'manager':
+//                     // Admin and manager can add users
+//                     if (req.path === '/signup') {
+//                         return next();
+//                     }
+//                     break;
+//                 default:
+//                     // Other roles are not allowed to add users
+//                     if (req.path === '/signup') {
+//                         return res.status(403).send('You do not have permission to add users');
+//                     }
+//             }
             
-            next();
-        } catch (err) {
-            return res.status(401).send('Invalid Token');
-        }
-    };
-};
+//             next();
+//         } catch (err) {
+//             return res.status(401).send('Invalid Token');
+//         }
+//     };
+// };
 
 // Connect to MongoDB
 mongoose.connect('mongodb://127.0.0.1:27017/dcc', { useNewUrlParser: true, useUnifiedTopology: true })
@@ -64,11 +64,12 @@ mongoose.connect('mongodb://127.0.0.1:27017/dcc', { useNewUrlParser: true, useUn
     .catch(err => console.error('Error connecting to MongoDB:', err));
 
 // Signup route
-app.post('/signup', verifyRole(['admin', 'manager']), async (req, res) => {
+// verifyRole(['admin', 'manager']),
+app.post('/signup',  async (req, res) => {
     try {
-        const { name, email, password } = req.body;
+        const { name, email , number, role , password } = req.body;
         const hashedPassword = await bcrypt.hash(password, 10);
-        await UserModel.create({ name, email, password: hashedPassword });
+        await UserModel.create({ name, email, number,role, password: hashedPassword });
         res.json({ status: 'success' });
     } catch (error) {
         res.status(500).json({ error: 'Internal server error' });
@@ -101,6 +102,15 @@ app.post('/login', async (req, res) => {
 app.post('/logout', (req, res) => {
     res.clearCookie('token', { path: '/' }).json({ status: 'success' }); 
   });
+
+  app.get('/getuser', async (req, res) => {
+    try {
+        const users = await UserModel.find();
+        res.send(users);
+    } catch (error) {
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
 
 // Server
 const PORT = process.env.PORT || 5000;

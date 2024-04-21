@@ -15,12 +15,14 @@ import SiteEngDash from './Component/Dashboard/siteeng/SitEngDash';
 import AdminDash from './Component/Dashboard/admin/AdminDash';
 import ManagerDash from './Component/Dashboard/manager/ManagerDash';
 import ClientDash from './Component/Dashboard/client/ClientDash';
+import { Toaster } from "react-hot-toast";
 
 
 
 function App() {
   return (
     <BrowserRouter>
+    <Toaster/>
     <div className='App'>
     <ShowHeader>
       <NavBar/>
