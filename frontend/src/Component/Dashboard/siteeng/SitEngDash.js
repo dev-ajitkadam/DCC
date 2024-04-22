@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import axios from 'axios';
 import { Link, useNavigate } from "react-router-dom";
-import AddUser from "./AddUser";
-import UserList from "./UserList";
-import Reports from "./Reports";
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import AddProject from "./AddProject";
+import AssignedProjectList from "./AssignedProjectList";
+import Sheduler from "./Sheduler";
+import SiteEngDashboardHome from "./Home";
+import ManagerDashboardHome from "../manager/Home";
 
 function SiteEngDash() {
     const [nav, setNav] = useState("home");
@@ -52,27 +53,21 @@ function SiteEngDash() {
                   </Link>
                 </li>
                 <li className="nav-item form-control-lg">
-                  <Link onClick={() => setNav("adduser")} className={`nav-link text-white ${nav === "adduser" && "active"}`}>
-                  <i class="bi bi-person-add m-2"></i>
-                    Add User
-                  </Link>
-                </li>
-                <li className="nav-item form-control-lg">
-                  <Link onClick={() => setNav("manageuser")} className={`nav-link text-white ${nav === "manageuser" && "active"}`}>
-                  <i class="bi bi-person-lines-fill m-2"></i>
-                    Manage User
-                  </Link>
-                </li>
-                <li className="nav-item form-control-lg">
                   <Link onClick={() => setNav("addproject")} className={`nav-link text-white ${nav === "addproject" && "active"}`}>
-                  <i class="bi bi-file-earmark-plus m-2"></i>
+                  <i class="bi bi-person-add m-2"></i>
                     Add Project
                   </Link>
                 </li>
                 <li className="nav-item form-control-lg">
-                  <Link onClick={() => setNav("reports")} className={`nav-link text-white ${nav === "reports" && "active"}`}>
-                  <i class="bi bi-file-earmark-text m-2"></i>
-                    Reports
+                  <Link onClick={() => setNav("assignedprojectlist")} className={`nav-link text-white ${nav === "assignedprojectlist" && "active"}`}>
+                  <i class="bi bi-person-lines-fill m-2"></i>
+                    Assigned Project
+                  </Link>
+                </li>
+                <li className="nav-item form-control-lg">
+                  <Link onClick={() => setNav("sheduler")} className={`nav-link text-white ${nav === "sheduler" && "active"}`}>
+                  <i class="bi bi-file-earmark-plus m-2"></i>
+                    Sheduler
                   </Link>
                 </li>
               </ul>
@@ -106,11 +101,10 @@ function SiteEngDash() {
                   </Container>
                 </div>
                 <div className="h-90">
-                  {nav === "home" && <AddUser />}
-                  {nav === "reports" && <Reports />}
-                  {nav === "adduser" && <AddUser />}
-                  {nav === "manageuser" && <UserList />}
-                  {nav === "addproject" && <AddProject/>}
+                  {nav === "home" && <SiteEngDashboardHome/>}
+                  {nav === "addproject" && <AddProject />}
+                  {nav === "assignedprojectlist" && <AssignedProjectList/>}
+                  {nav === "sheduler" && <Sheduler/>}
                 </div>
               </div>
             </div>

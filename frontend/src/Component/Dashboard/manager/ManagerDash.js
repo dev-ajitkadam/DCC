@@ -9,6 +9,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import AddProject from "./AddProject";
+import ManagerDashboardHome from "./Home";
 
 function ManagerDash() {
     const [nav, setNav] = useState("home");
@@ -106,7 +107,7 @@ function ManagerDash() {
                   </Container>
                 </div>
                 <div className="h-90">
-                  {nav === "home" && <AddUser />}
+                  {nav === "home" && <ManagerDashboardHome />}
                   {nav === "reports" && <Reports />}
                   {nav === "adduser" && <AddUser />}
                   {nav === "manageuser" && <UserList />}

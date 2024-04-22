@@ -10,6 +10,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import AddProject from "./AddProject";
 import AdminDashboardHome from "./Home";
+import AdminAddProject from "./AddProject";
 
 function AdminDash() {
     const [nav, setNav] = useState("home");
@@ -111,7 +112,7 @@ function AdminDash() {
                   {nav === "reports" && <Reports />}
                   {nav === "adduser" && <AddUser />}
                   {nav === "manageuser" && <UserList />}
-                  {nav === "addproject" && <AddProject/>}
+                  {nav === "addproject" && <AdminAddProject/>}
                 </div>
               </div>
             </div>

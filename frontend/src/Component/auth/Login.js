@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom"; // Remove Form import
 import axios from "axios";
 import dcc1 from "../images/dcc1.png"
+import toast from "react-hot-toast";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
@@ -16,7 +17,7 @@ const LoginForm = () => {
     const userData = { email, password };
     axios
       .post(
-        "http://localhost:5000/login", userData,
+        "http://localhost:5000/user/login", userData,
         { headers },
     
       )
@@ -34,7 +35,7 @@ const LoginForm = () => {
             navigate("/clientdash");
           }
         } else {
-          alert("Login failed: " + res.data);
+          toast("Login failed: " + res.data);
           navigate("/login");
         }
       })

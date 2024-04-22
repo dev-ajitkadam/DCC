@@ -31,14 +31,14 @@ function App() {
     <div>
       <Routes>
         <Route path="/" exact element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/contact" element={<Contact/>} />
-        <Route path='/siteengdash' element={<SiteEngDash/>}/>
-        <Route path="/admindash" element={<AdminDash/>} />
-        <Route path="/managerdash" element={<ManagerDash/>} />
-        <Route path="/clientdash" element={<ClientDash />} />
+        <Route path="/about" exact element={<About />} />
+        <Route path="/services" exact element={<Services />} />
+        <Route path="/login" exact element={<Login />} />
+        <Route path="/contact" exact element={<Contact/>} />
+        <Route path='/siteengdash' exact element={<SiteEngDash/>}/>
+        <Route path="/admindash" exact element={<AdminDash/>} />
+        <Route path="/managerdash" exact element={<ManagerDash/>} />
+        <Route path="/clientdash" exact element={<ClientDash />} />
       </Routes>
       </div>
       <ShowFooter>

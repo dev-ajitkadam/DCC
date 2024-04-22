@@ -6,7 +6,6 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import AddProject from "./AddProject";
 import AdminDashboardHome from "./Home";
 import ProjectList from "./ProjectList";
 import AssignedEng from "./AssignedEng";
@@ -65,12 +64,6 @@ function ClientDash() {
                   </Link>
                 </li>
                 <li className="nav-item form-control-lg">
-                  <Link onClick={() => setNav("addproject")} className={`nav-link text-white ${nav === "addproject" && "active"}`}>
-                  <i class="bi bi-file-earmark-plus m-2"></i>
-                    Add Project
-                  </Link>
-                </li>
-                <li className="nav-item form-control-lg">
                   <Link onClick={() => setNav("reports")} className={`nav-link text-white ${nav === "reports" && "active"}`}>
                   <i class="bi bi-file-earmark-text m-2"></i>
                     Reports
@@ -111,7 +104,6 @@ function ClientDash() {
                   {nav === "projectlist" && <ProjectList/>}
                   {nav === "assignedeng" && <AssignedEng />}
                   {nav === "reports" && <Reports />}
-                  {nav === "addproject" && <AddProject/>}
                 </div>
               </div>
             </div>

@@ -19,7 +19,7 @@ const SignUp = () => {
     const userData = { name, email, number, role, password };
     console.log(userData)
     axios
-      .post("http://localhost:5000/signup", userData, { headers })
+      .post("http://localhost:5000/user/signup", userData, { headers })
       .then((res) => {
         toast("User Registerrd successfully")
         handleSubmits();

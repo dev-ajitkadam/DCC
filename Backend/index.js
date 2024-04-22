@@ -1,12 +1,11 @@
 const express = require("express");
 const mongoose = require('mongoose');
 const cors = require('cors');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
-const UserModel = require('./models/user');
 require('dotenv').config();
 const app = express();
+const userRoutes = require('./Routers/userRoutes');
+const projectRoutes = require('./Routers/projectsRoutes');
 
 // Middleware
 app.use(express.json());
@@ -16,8 +15,6 @@ app.use(cors({
     credentials: true,
 }));
 app.use(cookieParser());
-
-const SECRET_KEY = process.env.JWT_SECRET;
 
 // Middleware to verify user role and permissions
 // const verifyRole = (allowedRoles) => {
@@ -63,55 +60,9 @@ mongoose.connect('mongodb://127.0.0.1:27017/dcc', { useNewUrlParser: true, useUn
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.error('Error connecting to MongoDB:', err));
 
-// Signup route
-// verifyRole(['admin', 'manager']),
-app.post('/signup',  async (req, res) => {
-    try {
-        const { name, email , number, role , password } = req.body;
-        const hashedPassword = await bcrypt.hash(password, 10);
-        await UserModel.create({ name, email, number,role, password: hashedPassword });
-        res.json({ status: 'success' });
-    } catch (error) {
-        res.status(500).json({ error: 'Internal server error' });
-    }
-});
-
-// Login route
-app.post('/login', async (req, res) => {
-    try {
-        const { email, password } = req.body;
-        const user = await UserModel.findOne({ email });
-        if (user) {
-            const isPasswordValid = await bcrypt.compare(password, user.password);
-            if (isPasswordValid) {
-                const token = jwt.sign({ email: user.email, role: user.role }, SECRET_KEY, { expiresIn: '30d' });
-                res.cookie('token', token, { httpOnly: true, maxAge: 30 * 24 * 60 * 60 * 1000 });
-                res.json({ status: 'success', role: user.role });
-            } else {
-                res.status(401).json({ error: 'Incorrect password' });
-            }
-        } else {
-            res.status(404).json({ error: 'User not found' });
-        }
-    } catch (error) {
-        res.status(500).json({ error: 'Internal server error' });
-    }
-});
-
-// Logout route
-app.post('/logout', (req, res) => {
-    res.clearCookie('token', { path: '/' }).json({ status: 'success' }); 
-  });
-
-  app.get('/getuser', async (req, res) => {
-    try {
-        const users = await UserModel.find();
-        res.send(users);
-    } catch (error) {
-        res.status(500).json({ error: 'Internal server error' });
-    }
-});
-
+//Routes
+app.use('/user', userRoutes);
+app.use('/project', projectRoutes);
 // Server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
