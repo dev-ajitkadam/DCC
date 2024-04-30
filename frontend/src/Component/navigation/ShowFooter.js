@@ -8,13 +8,13 @@ const ShowFooter = ({ children }) => {
   useEffect(() => {
     if (location.pathname === '/login') {
       setShowFooter(false);
-    }else if(location.pathname === '/siteengdash'){
+    }else if(location.pathname === '/dashboard/admin'){
       setShowFooter(false)
-    }else if(location.pathname === '/admindash'){
+    }else if(location.pathname === '/dashboard/siteeng'){
       setShowFooter(false)
-    }else if(location.pathname === '/managerdash'){
+    }else if(location.pathname === '/dashboard/manager'){
       setShowFooter(false)
-    }else if(location.pathname === '/clientdash'){
+    }else if(location.pathname === '/dashboard/client'){
       setShowFooter(false)
     } else {
       setShowFooter(true);

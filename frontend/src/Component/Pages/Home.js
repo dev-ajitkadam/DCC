@@ -283,8 +283,8 @@ function Home() {
               sample collection, and high-quality testing followed by a quick
               response. Get your tailored support today!
             </p>
-            <h3>Contact No: +918888403292</h3>
-            <h3>Email ID: altraavision@gmail.com</h3>
+            <h3>Contact No: +918888886201</h3>
+            <h3>Email ID: support@dccrmc.com</h3>
             <div className="d-inline-flex gap-2 pt-2 pb-2">
               <Link to="/contact">
                 <button

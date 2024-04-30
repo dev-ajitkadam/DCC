@@ -6,20 +6,16 @@ function Footer() {
   return (
     <footer>
       <div className="container-fluid footers text-light">
-        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 border-top">
-          <div className="col mb-3 ml-5 pl-5 justify-center align-items-center">
+        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 py-2 pt-5">
+          <div className="col flex justify-content-center align-items-center h-auto">
             <a href="/" className="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
             <img src={dcc1}
-                     height="100" 
                      width= "100"
                      alt="Logo" />
             </a>
             <h1>DCC</h1>
           </div>
 
-          <div className="col mb-3">
-
-          </div>
 
           <div className="col mb-3 text-light">
             <h5>Section</h5>

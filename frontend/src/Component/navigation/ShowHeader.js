@@ -8,13 +8,13 @@ const ShowHeader = ({ children }) => {
   useEffect(() => {
     if (location.pathname === '/login') {
       setShowNavbar(false);
-    }else if(location.pathname === '/siteengdash'){
+    }else if(location.pathname === '/dashboard/admin'){
       setShowNavbar(false)
-    }else if(location.pathname === '/admindash'){
+    }else if(location.pathname === '/dashboard/admin'){
       setShowNavbar(false)
-    }else if(location.pathname === '/clientdash'){
+    }else if(location.pathname === '/dashboard/siteeng'){
       setShowNavbar(false)
-    }else if(location.pathname === '/managerdash'){
+    }else if(location.pathname === '/dashboard/client'){
       setShowNavbar(false)
     }else {
       setShowNavbar(true);

@@ -11,13 +11,8 @@ const AdminAddProject = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/project/addproject", {
-        name: billingName,
-        address: billingAddress,
-        email: email,
-        number: number,
-
-      });
+      
+      const response = await axios.post("http://127.0.0.1:5000/project/addproject", {billingName, billingAddress, email, number});
       console.log(response.data);
       toast("Project Added Successfully and sent to admin")
       setBillingName("");
@@ -44,6 +39,7 @@ const AdminAddProject = () => {
                 type="text"
                 placeholder="Enter Billing Name"
                 autoComplete="off"
+                
                 name="billingName"
                 id="billingName"
                 className="form-control rounded-1"

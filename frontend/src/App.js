@@ -7,15 +7,16 @@ import Services from './Component/Pages/Services';
 import Login from './Component/auth/Login';
 import Contact from './Component/Pages/Contact';
 import ShowHeader from './Component/navigation/ShowHeader';
-import Slider from './Component/navigation/Slider';
-import NavBar from './Component/navigation/NavBar';
-import Footer from './Component/navigation/Footer';
+import Slider from './Component/Pages/Slider';
+import NavBar from './Component/Pages/NavBar';
+import Footer from './Component/Pages/Footer';
 import ShowFooter from './Component/navigation/ShowFooter';
 import SiteEngDash from './Component/Dashboard/siteeng/SitEngDash';
 import AdminDash from './Component/Dashboard/admin/AdminDash';
 import ManagerDash from './Component/Dashboard/manager/ManagerDash';
 import ClientDash from './Component/Dashboard/client/ClientDash';
 import { Toaster } from "react-hot-toast";
+import PrivateRoutes from './Component/navigation/PrivateRoutes';
 
 
 
@@ -35,10 +36,13 @@ function App() {
         <Route path="/services" exact element={<Services />} />
         <Route path="/login" exact element={<Login />} />
         <Route path="/contact" exact element={<Contact/>} />
-        <Route path='/siteengdash' exact element={<SiteEngDash/>}/>
-        <Route path="/admindash" exact element={<AdminDash/>} />
-        <Route path="/managerdash" exact element={<ManagerDash/>} />
-        <Route path="/clientdash" exact element={<ClientDash />} />
+        {/* Private Routes */}
+        <Route path='/dashboard' element={<PrivateRoutes/>}>
+        <Route path='siteeng'  element={<SiteEngDash/>}/>
+        <Route path="admin"  element={<AdminDash/>} />
+        <Route path="manager"  element={<ManagerDash/>} />
+        <Route path="client"  element={<ClientDash />} />
+        </Route>
       </Routes>
       </div>
       <ShowFooter>

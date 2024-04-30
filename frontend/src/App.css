@@ -33,7 +33,7 @@
   background: #555;
 }
 .bg-custom-color {
-    background-color:#3466aa;
+    background-color:#ebf801;
   }
 
   #navbar{
@@ -211,6 +211,7 @@ padding: 1rem;
   -moz-transition: all 0.3s;
   -ms-transition: all 0.3s;
   -o-transition: all 0.3s;
+  text-weight:700;
 }
 
 .cards:hover {
@@ -219,7 +220,7 @@ padding: 1rem;
   -moz-transform: scale(1.1);
   -ms-transform: scale(1.1);
   -o-transform: scale(1.1);
-  background-color: aqua;
+  text-shadow: black;
 }
 
 .col{

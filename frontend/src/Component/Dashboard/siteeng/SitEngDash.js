@@ -10,6 +10,7 @@ import AssignedProjectList from "./AssignedProjectList";
 import Sheduler from "./Sheduler";
 import SiteEngDashboardHome from "./Home";
 import ManagerDashboardHome from "../manager/Home";
+import SiteEngAddProject from "./AddProject";
 
 function SiteEngDash() {
     const [nav, setNav] = useState("home");
@@ -102,7 +103,7 @@ function SiteEngDash() {
                 </div>
                 <div className="h-90">
                   {nav === "home" && <SiteEngDashboardHome/>}
-                  {nav === "addproject" && <AddProject />}
+                  {nav === "addproject" && <SiteEngAddProject />}
                   {nav === "assignedprojectlist" && <AssignedProjectList/>}
                   {nav === "sheduler" && <Sheduler/>}
                 </div>
